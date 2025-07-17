@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Schedule | Borneo MMA Gym</title>
+  <link rel="shortcut icon" type="image/jpg" href="triangle.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #e50914;
+      --secondary: #ffcc00;
+      --bg-gradient: linear-gradient(135deg, #ffe259, #ffa751);
+      --nav-gradient: linear-gradient(to right, #e50914, #ff6a00);
+      --text-color: #f4f4f4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .logo-container img {
+      height: 140px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    nav {
+      background: var(--nav-gradient);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--secondary);
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .schedule-img {
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.6rem;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Logo -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Borneo MMA Gym Logo">
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Weekly Training Schedule</h1>
+    <img src="schedule.png" alt="Gym Weekly Schedule" class="schedule-img">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Borneo MMA Gym. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

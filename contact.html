@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact | Borneo MMA Gym</title>
+  <link rel="shortcut icon" type="image/jpg" href="triangle.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #e50914;
+      --secondary: #ffcc00;
+      --bg-gradient: linear-gradient(135deg, #ffe259, #ffa751);
+      --nav-gradient: linear-gradient(to right, #e50914, #ff6a00);
+      --text-color: #f4f4f4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .logo-container img {
+      height: 140px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .logo-container h1 {
+      margin: 0.5rem 0 0 0;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .logo-container p {
+      margin: 0.2rem;
+      font-size: 1rem;
+      color: #222;
+    }
+
+    nav {
+      background: var(--nav-gradient);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--secondary);
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background-color: #c30710;
+    }
+
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: 0;
+      border-radius: 12px;
+      margin-top: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo and Contact Info -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Borneo MMA Gym Logo" />
+    <h1>Borneo MMA Gym</h1>
+    <p>Email: contact@borneomm-gym.com</p>
+    <p>Phone: +60 12-345 6789</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Your Phone Number" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Google Map -->
+ <h2>Find us here</h2>
+
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.433387203657!2d110.33600129999999!3d1.5096908999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31fba763da61f7c5%3A0xb4601bb36f9adb13!2sMMA%20Sports%20Hub!5e0!3m2!1sen!2smy!4v1751310514931!5m2!1sen!2smy"
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Borneo MMA Gym. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

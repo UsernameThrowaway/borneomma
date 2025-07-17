@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Borneo MMA Trainers</title>
+  <link rel="shortcut icon" type="image/jpg" href="triangle.jpg" />
+
+  <style>
+    :root {
+      --primary: #e50914;
+      --secondary: #ffcc00;
+      --bg-gradient: linear-gradient(135deg, #ffe259, #ffa751);
+      --nav-gradient: linear-gradient(to right, #e50914, #ff6a00);
+      --text-color: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .logo-container img {
+      height: 140px;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    nav {
+      background: var(--nav-gradient);
+      padding: 1rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: var(--secondary);
+      bottom: -4px;
+      left: 0;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    h2.section-title {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2.6rem;
+      margin: 2rem 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .trainers {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding: 0 2rem 4rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .trainer-card {
+      display: flex;
+      background-color: #1a1a1a;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .trainer-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .trainer-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+    }
+
+    .trainer-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .trainer-image img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .trainer-card:hover .trainer-image img {
+      transform: scale(1.08);
+    }
+
+    .trainer-info {
+      flex: 2;
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .trainer-info h3 {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin: 0 0 0.5rem;
+    }
+
+    .trainer-info .class {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .trainer-info .bio {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #ddd;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+    }
+
+    .trainer-card.expanded .bio {
+      max-height: 1000px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .toggle-btn {
+      margin-top: 1rem;
+      background: none;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+      align-self: flex-start;
+    }
+
+    .toggle-btn:hover {
+      background-color: var(--secondary);
+      color: var(--bg-gradient);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .trainer-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .trainer-info {
+        padding: 1.5rem;
+      }
+
+      .trainer-info h3 {
+        font-size: 1.6rem;
+      }
+
+      .trainer-info .class {
+        font-size: 1.1rem;
+      }
+
+      .trainer-info .bio {
+        font-size: 1rem;
+        text-align: justify;
+      }
+
+      .toggle-btn {
+        align-self: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="logo-container">
+    <img src="logo.png" alt="Borneo MMA Gym Logo">
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainer.html">Trainers</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+  <h2 class="section-title">Meet Our Trainers</h2>
+
+  <div class="trainers">
+
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="evan.png" alt="Coach Evan">
+      </div>
+      <div class="trainer-info">
+        <h3>Coach Evan</h3>
+        <p class="class">Muay Thai Fighter</p>
+        <button class="toggle-btn">View Backstory</button>
+        <p class="bio">
+          Coming from a boxing background, Evan transitioned into Muay Thai and found his rhythm. A veteran of local and international tournaments including ONE Championship, he holds a professional record of 13-3-0. Known for his grit and heart, his motto is: “Losing is a process of improvement.”
+        </p>
+      </div>
+    </div>
+
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="Larry.png" alt="Coach Larry">
+      </div>
+      <div class="trainer-info">
+        <h3>Coach Larry</h3>
+        <p class="class">Brazilian Jiu-Jitsu</p>
+        <button class="toggle-btn">View Backstory</button>
+        <p class="bio">
+          A BJJ black belt, Coach Larry has competed in ADCC, IBJJF, and MGL. Mentored by names like Craig Jones and Charles Oliveira, he brings unmatched submission knowledge to Borneo MMA.
+        </p>
+      </div>
+    </div>
+
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="aman.png" alt="Coach Fathurahman">
+      </div>
+      <div class="trainer-info">
+        <h3>Coach Fathurahman</h3>
+        <p class="class">Boxing Coach</p>
+        <button class="toggle-btn">View Backstory</button>
+        <p class="bio">
+          A former WBO Middleweight Champion, Coach Fathurahman trained in the legendary Mayweather Gym. With an undefeated 10-0 coaching record, he now guides new generations of fighters at Borneo MMA.
+        </p>
+      </div>
+    </div>
+
+    <div class="trainer-card">
+      <div class="trainer-image">
+        <img src="dylan.png" alt="Coach Dylan">
+      </div>
+      <div class="trainer-info">
+        <h3>Coach Dylan</h3>
+        <p class="class">Mixed Martial Artist</p>
+        <button class="toggle-btn">View Backstory</button>
+        <p class="bio">
+          A hybrid fighter and active pro, Coach Dylan has competed in Bellator, Cage Warriors, and even StreetBeefs. A student of multiple disciplines, he balances his own career with coaching rising talent at Borneo MMA.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Borneo MMA Gym. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.toggle-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const card = button.closest('.trainer-card');
+        card.classList.toggle('expanded');
+        button.textContent = card.classList.contains('expanded') ? "Hide Backstory" : "View Backstory";
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.trainer-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>

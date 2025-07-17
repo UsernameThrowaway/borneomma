@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Borneo MMA Gym</title>
+  <link rel="shortcut icon" href="triangle.jpg" type="image/jpg" />
+  <style>
+    :root {
+      --primary-red: #ff3c38;
+      --secondary-yellow: #f9d923;
+      --text-light: #fefefe;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ffe259, #ffa751, #ff6a00, #ff2e63);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      position: relative;
+      height: 650px;
+      overflow: hidden;
+    }
+
+    header video.banner {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    nav {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      padding: 1rem 0;
+      text-align: center;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-size: 1.1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary-red);
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary-yellow);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .logo-title {
+      text-align: center;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .logo-title img.logo {
+      height: 120px;
+    }
+
+    .logo-title h1 {
+      font-size: 2.8rem;
+      color: var(--primary-red);
+      letter-spacing: 10px;
+      margin-bottom: 0.5rem;
+    }
+
+    .clock {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    main img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 2s ease;
+    }
+
+    .intro-text {
+      margin-top: 2rem;
+    }
+
+    .intro-text h3 {
+      color: var(--primary-red);
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .intro-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #fffaf2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      margin-top: 3rem;
+    }
+
+    #cookieConsent {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    #cookieConsent button {
+      margin: 0 10px;
+      background-color: var(--primary-red);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #cookieConsent button:hover {
+      background-color: #cc2a28;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .logo-title h1 {
+        font-size: 2rem;
+        letter-spacing: 4px;
+      }
+
+      .logo-title img.logo {
+        height: 80px;
+      }
+
+      .clock {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <video class="banner" autoplay muted loop playsinline>
+      <source src="banner.mp4" type="video/mp4" />
+    </video>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+  <div class="logo-title">
+    <img src="logo.png" alt="Logo" class="logo" />
+    <h1>WELCOME TO BORNEO MMA</h1>
+    <div class="clock" id="clockDisplay"></div>
+  </div>
+
+  <main>
+    <div class="intro-text">
+      <h3>Fight. Win. Repeat</h3>
+      <p>Step into the cage with Borneo MMA where warriors are built, discipline is forged, and champions rise. Our gym is home to top-level strikers, grapplers, and MMA fighters ready to push limits daily.</p>
+    </div>
+
+    <div class="intro-text">
+      <h3>What is MMA?</h3>
+      <p>Mixed Martial Arts (MMA) is a full-contact combat sport combining striking, wrestling, and submission fighting. At Borneo MMA, we teach you to dominate in every aspect from stand-up to ground and pound.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Borneo MMA Gym. All Rights Reserved.
+  </footer>
+
+  <!-- Cookie Consent -->
+  <div id="cookieConsent">
+    <p>We use cookies to enhance your experience. By continuing to visit this site, you accept our use of cookies.</p>
+    <button onclick="acceptCookies()">Accept</button>
+    <button onclick="declineCookies()">Decline</button>
+  </div>
+
+  <script>
+    function acceptCookies() {
+      document.getElementById('cookieConsent').style.display = 'none';
+      console.log("Cookies accepted.");
+    }
+
+    function declineCookies() {
+      document.getElementById('cookieConsent').style.display = 'none';
+      console.log("Cookies declined.");
+    }
+
+    // Digital Clock
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('clockDisplay').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>

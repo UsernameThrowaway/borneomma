@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | Borneo MMA Gym</title>
+  <link rel="shortcut icon" type="image/jpg" href="triangle.jpg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #e50914;
+      --secondary: #ffcc00;
+      --bg-gradient: linear-gradient(135deg, #ffe259, #ffa751);
+      --nav-gradient: linear-gradient(to right, #e50914, #ff6a00);
+      --text-color: #f4f4f4;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-color);
+    }
+
+    .logo-container {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .logo-container img {
+      height: 140px;
+    }
+
+    .logo-container h1 {
+      margin: 0.5rem 0 0 0;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .logo-container p {
+      margin: 0.2rem;
+      font-size: 1rem;
+      color: #222;
+    }
+
+    nav {
+      background: var(--nav-gradient);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1rem 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #c30710;
+    }
+
+    .receipt {
+      display: none;
+      background: #ffffff;
+      color: #000;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin-top: 2rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .receipt h3 {
+      color: var(--primary);
+    }
+
+    .receipt button {
+      margin-top: 1.5rem;
+      background-color: var(--secondary);
+      color: #000;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.2);
+      color: #eee;
+      margin-top: 3rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media print {
+      nav, footer, form button, .receipt button {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: #000 !important;
+      }
+      .receipt {
+        box-shadow: none !important;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo and Contact Info -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Borneo MMA Gym Logo" />
+    <h1>Borneo MMA Gym</h1>
+    <p>Email: contact@borneomm-gym.com</p>
+    <p>Phone: +60 12-345 6789</p>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="classes.html">Classes</a>
+    <a href="trainer.html">Trainer</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+  </nav>
+
+  <!-- Registration Form -->
+  <div class="container">
+    <h2>Register for a Membership</h2>
+    <form id="regForm">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+
+      <label for="plan">Select a Plan:</label>
+      <select id="plan" name="plan" required>
+        <option value="">-- Please Choose --</option>
+        <option value="1 Month - RM100">1 Month - RM100</option>
+        <option value="6 Months - RM600">6 Months - RM600</option>
+        <option value="1 Year - RM1200">1 Year - RM1200</option>
+        <option value="Walk-in - RM35">Walk-in - RM35</option>
+      </select>
+
+      <label for="payment">Payment Method:</label>
+      <select id="payment" name="payment" required onchange="togglePaymentFields()">
+        <option value="">-- Choose Payment Method --</option>
+        <option value="Online Banking">Online Banking</option>
+        <option value="Credit Card">Credit Card</option>
+        <option value="E-Wallet">E-Wallet</option>
+      </select>
+
+      <!-- Online Banking -->
+      <div id="bankFields" class="hidden">
+        <input type="text" name="bankName" placeholder="Bank Name" />
+        <input type="text" name="accountNumber" placeholder="Account Number" />
+      </div>
+
+      <!-- Credit Card -->
+      <div id="cardFields" class="hidden">
+        <input type="text" name="cardNumber" placeholder="Card Number" />
+        <input type="text" name="expiryDate" placeholder="Expiry Date (MM/YY)" />
+        <input type="text" name="cvv" placeholder="CVV" />
+      </div>
+
+      <button type="submit">Submit & Generate Invoice</button>
+    </form>
+
+    <!-- Invoice Section -->
+    <div class="receipt" id="invoice">
+      <h3>Invoice / Receipt</h3>
+      <p><strong>Name:</strong> <span id="rName"></span></p>
+      <p><strong>Email:</strong> <span id="rEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="rPhone"></span></p>
+      <p><strong>Selected Plan:</strong> <span id="rPlan"></span></p>
+      <p><strong>Payment Method:</strong> <span id="rPayment"></span></p>
+      <p><strong>Date:</strong> <span id="rDate"></span></p>
+      <button onclick="window.print()">Print Receipt</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Borneo MMA Gym. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function togglePaymentFields() {
+      const payment = document.getElementById("payment").value;
+      document.getElementById("bankFields").classList.add("hidden");
+      document.getElementById("cardFields").classList.add("hidden");
+
+      if (payment === "Online Banking") {
+        document.getElementById("bankFields").classList.remove("hidden");
+        document.querySelector("[name='bankName']").required = true;
+        document.querySelector("[name='accountNumber']").required = true;
+      } else {
+        document.querySelector("[name='bankName']").required = false;
+        document.querySelector("[name='accountNumber']").required = false;
+      }
+
+      if (payment === "Credit Card") {
+        document.getElementById("cardFields").classList.remove("hidden");
+        document.querySelector("[name='cardNumber']").required = true;
+        document.querySelector("[name='expiryDate']").required = true;
+        document.querySelector("[name='cvv']").required = true;
+      } else {
+        document.querySelector("[name='cardNumber']").required = false;
+        document.querySelector("[name='expiryDate']").required = false;
+        document.querySelector("[name='cvv']").required = false;
+      }
+    }
+
+    document.getElementById("regForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = this.name.value;
+      const email = this.email.value;
+      const phone = this.phone.value;
+      const plan = this.plan.value;
+      const payment = this.payment.value;
+      const today = new Date().toLocaleDateString();
+
+      document.getElementById("rName").textContent = name;
+      document.getElementById("rEmail").textContent = email;
+      document.getElementById("rPhone").textContent = phone;
+      document.getElementById("rPlan").textContent = plan;
+      document.getElementById("rPayment").textContent = payment;
+      document.getElementById("rDate").textContent = today;
+
+      document.getElementById("regForm").style.display = "none";
+      document.getElementById("invoice").style.display = "block";
+    });
+  </script>
+</body>
+</html>
